@@ -33,7 +33,7 @@ module.exports = function (passport) {
   // use these strategies
   passport.use(local);
   //passport.use(google);
-  //passport.use(facebook);
+  passport.use(facebook);
   //passport.use(twitter);
   //passport.use(linkedin);
   //passport.use(github);

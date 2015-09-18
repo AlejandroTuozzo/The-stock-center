@@ -59,7 +59,13 @@ exports.show = function (req, res) {
   });
 };
 
-exports.signin = function (req, res) {};
+exports.signin = function (req, res) {
+var user = req.profile;
+  res.render('users/show', {
+    title: user.name,
+    user: user
+  });
+};
 
 /**
  * Auth callback
