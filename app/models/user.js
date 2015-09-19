@@ -119,6 +119,7 @@ UserSchema.methods = {
    */
 
   authenticate: function (plainText) {
+    console.log('por aca estoy pasando');
     return this.encryptPassword(plainText) === this.hashed_password;
   },
 

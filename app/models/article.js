@@ -33,28 +33,23 @@ var setTags = function (tags) {
  */
 
 var ArticleSchema = new Schema({
-  title: {type : String, default : '', trim : true},
-  body: {type : String, default : '', trim : true},
-  user: {type : Schema.ObjectId, ref : 'User'},
-  comments: [{
-    body: { type : String, default : '' },
-    user: { type : Schema.ObjectId, ref : 'User' },
-    createdAt: { type : Date, default : Date.now }
-  }],
-  tags: {type: [], get: getTags, set: setTags},
-  image: {
-    cdnUri: String,
-    files: []
-  },
-  createdAt  : {type : Date, default : Date.now}
+  description: {type : String, default : '', trim : true},
+  barCode: {type: Number}
+  price: {type : Number, default : 0},
+  date: {type: Date, default: Date.now},
+  historyPrice: [{
+    title: { type : String, default : '' },
+    price: { type : Number},
+    date: { type : Date, default : Date.now }
+  }]
 });
 
 /**
  * Validations
  */
 
-ArticleSchema.path('title').required(true, 'Article title cannot be blank');
-ArticleSchema.path('body').required(true, 'Article body cannot be blank');
+ArticleSchema.path('description').required(true, 'Article title cannot be blank');
+ArticleSchema.path('price').required(true, 'Article body cannot be blank');
 
 /**
  * Pre-remove hook

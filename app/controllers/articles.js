@@ -69,7 +69,6 @@ exports.create = function (req, res) {
   var images = req.files.image
     ? [req.files.image]
     : undefined;
-
   article.user = req.user;
   article.uploadAndSave(images, function (err) {
     if (!err) {
