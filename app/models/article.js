@@ -34,9 +34,13 @@ var setTags = function (tags) {
 
 var ArticleSchema = new Schema({
   description: {type : String, default : '', trim : true},
-  barCode: {type: Number}
-  price: {type : Number, default : 0},
+  barCode: {type: Number},
+  price: {type : Number},
   date: {type: Date, default: Date.now},
+  image: {
+    cdnUri: String,
+    files: []
+  },
   historyPrice: [{
     title: { type : String, default : '' },
     price: { type : Number},
@@ -48,9 +52,9 @@ var ArticleSchema = new Schema({
  * Validations
  */
 
-ArticleSchema.path('description').required(true, 'Article title cannot be blank');
-ArticleSchema.path('price').required(true, 'Article body cannot be blank');
-
+ArticleSchema.path('description').required(true, 'Article description cannot be blank');
+ArticleSchema.path('price').required(true, 'Article price cannot be blank');
+ArticleSchema.path('barCode').required(true, 'Article bar code cannot be blank');
 /**
  * Pre-remove hook
  */
@@ -82,6 +86,8 @@ ArticleSchema.methods = {
    */
 
   uploadAndSave: function (images, cb) {
+    
+
     if (!images || !images.length) return this.save(cb)
 
     var imager = new Imager(imagerConfig, 'S3');
