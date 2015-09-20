@@ -37,6 +37,7 @@ var ArticleSchema = new Schema({
   barCode: {type: Number},
   price: {type : Number},
   date: {type: Date, default: Date.now},
+  stock:{type:Number},
   image: {
     cdnUri: String,
     files: []
@@ -55,6 +56,7 @@ var ArticleSchema = new Schema({
 ArticleSchema.path('description').required(true, 'Article description cannot be blank');
 ArticleSchema.path('price').required(true, 'Article price cannot be blank');
 ArticleSchema.path('barCode').required(true, 'Article bar code cannot be blank');
+ArticleSchema.path('stock').required(true, 'Article stock cannot be blank');
 /**
  * Pre-remove hook
  */
