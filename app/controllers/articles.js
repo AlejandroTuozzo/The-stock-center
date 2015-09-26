@@ -67,6 +67,13 @@ exports.sold = function (req, res){
   res.render('articles/sold');
 };
 
+/*
+  charts
+*/
+
+exports.charts = function (req, res){
+  res.render('articles/charts');
+};
 
 /**
  * Create an article

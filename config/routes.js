@@ -92,12 +92,13 @@ module.exports = function (app, passport) {
   app.get('/articles', articles.index);
   app.get('/articles/new', auth.requiresLogin, articles.new);
   app.get('/articles/sold', auth.requiresLogin, articles.sold);
+  app.get('/articles/charts', auth.requiresLogin, articles.charts);
   app.post('/articles', auth.requiresLogin, articles.create);
   app.get('/articles/:id', articles.show);
   app.get('/articles/:id/edit', articleAuth, articles.edit);
   app.put('/articles/:id', articleAuth, articles.update);
   app.delete('/articles/:id', articleAuth, articles.destroy);
-  app.post('/articles/get/:id', auth.requiresLogin, articles.get);
+  //app.post('/articles/get/:id', auth.requiresLogin, articles.get);
 
   // home route
   app.get('/', articles.index);
