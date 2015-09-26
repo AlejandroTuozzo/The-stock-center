@@ -1,7 +1,9 @@
 {% extends '../layouts/default.html' %}
 
 
-
+{% block css%}
+  <link href="/typeahead.js/dist/typeahead.css" rel="stylesheet">
+{% endblock %}
 {% block main %}
   <h1>{{ title }}</h1>
   <hr>
@@ -31,7 +33,7 @@
         </div>
 
         <div class="form-group">
-          <label for="desc" class="col-sm-2 control-label">Price</label>
+          <label for="desc" class="col-sm-2 control-label">Many many</label>
           <div class="col-sm-10">
             <input type="text" class="form-control" name="price" placeholder="Enter the article price" id="price" value="{{ article.price }}"/>
           </div>
@@ -54,7 +56,7 @@
 
  $(function(){
    var substringMatcher = function(strs) {
-return function findMatches(q, cb) {
+                            return function findMatches(q, cb) {
  var matches, substringRegex;
 
  // an array that will be populated with substring matches
@@ -76,25 +78,25 @@ return function findMatches(q, cb) {
 };
 
 var states = ['Alabama', 'Alaska', 'Arizona', 'Arkansas', 'California',
-'Colorado', 'Connecticut', 'Delaware', 'Florida', 'Georgia', 'Hawaii',
-'Idaho', 'Illinois', 'Indiana', 'Iowa', 'Kansas', 'Kentucky', 'Louisiana',
-'Maine', 'Maryland', 'Massachusetts', 'Michigan', 'Minnesota',
-'Mississippi', 'Missouri', 'Montana', 'Nebraska', 'Nevada', 'New Hampshire',
-'New Jersey', 'New Mexico', 'New York', 'North Carolina', 'North Dakota',
-'Ohio', 'Oklahoma', 'Oregon', 'Pennsylvania', 'Rhode Island',
-'South Carolina', 'South Dakota', 'Tennessee', 'Texas', 'Utah', 'Vermont',
-'Virginia', 'Washington', 'West Virginia', 'Wisconsin', 'Wyoming'
-];
+              'Colorado', 'Connecticut', 'Delaware', 'Florida', 'Georgia', 'Hawaii',
+              'Idaho', 'Illinois', 'Indiana', 'Iowa', 'Kansas', 'Kentucky', 'Louisiana',
+              'Maine', 'Maryland', 'Massachusetts', 'Michigan', 'Minnesota',
+              'Mississippi', 'Missouri', 'Montana', 'Nebraska', 'Nevada', 'New Hampshire',
+              'New Jersey', 'New Mexico', 'New York', 'North Carolina', 'North Dakota',
+              'Ohio', 'Oklahoma', 'Oregon', 'Pennsylvania', 'Rhode Island',
+              'South Carolina', 'South Dakota', 'Tennessee', 'Texas', 'Utah', 'Vermont',
+              'Virginia', 'Washington', 'West Virginia', 'Wisconsin', 'Wyoming'
+            ];
 
-$('.typeahead').typeahead({
-hint: true,
-highlight: true,
-minLength: 1
-},
-{
-name: 'states',
-source: substringMatcher(states)
-});
+            $('.typeahead').typeahead({
+              hint: true,
+              highlight: true,
+              minLength: 1
+            },
+            {
+            name: 'states',
+            source: substringMatcher(states)
+            });
 
  });
 
