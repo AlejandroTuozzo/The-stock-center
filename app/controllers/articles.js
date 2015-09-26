@@ -54,10 +54,19 @@ exports.index = function (req, res){
 
 exports.new = function (req, res){
   res.render('articles/new', {
-    title: 'New Article',
+    title: 'New Article...',
     article: new Article({})
   });
 };
+
+/**
+ * Sold article
+ */
+
+exports.sold = function (req, res){
+  res.render('articles/sold');
+};
+
 
 /**
  * Create an article

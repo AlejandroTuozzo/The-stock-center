@@ -91,6 +91,7 @@ module.exports = function (app, passport) {
   app.param('id', articles.load);
   app.get('/articles', articles.index);
   app.get('/articles/new', auth.requiresLogin, articles.new);
+  app.get('/articles/sold', auth.requiresLogin, articles.sold);
   app.post('/articles', auth.requiresLogin, articles.create);
   app.get('/articles/:id', articles.show);
   app.get('/articles/:id/edit', articleAuth, articles.edit);
